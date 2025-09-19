@@ -1,0 +1,140 @@
+:root{
+  --bg:#0f172a;
+  --panel:#0b1220;
+  --text:#e5e7eb;
+  --muted:#94a3b8;
+  --primary:#22d3ee;
+  --ring: rgba(34,211,238,.35);
+}
+
+/* Fondo general */
+html, body, #root { min-height: 100%; }
+body{
+  background:
+    radial-gradient(1200px 800px at 10% -20%, #1f2937 0, transparent 60%),
+    radial-gradient(1200px 800px at 120% 120%, #1f2937 0, transparent 60%),
+    var(--bg);
+  color: var(--text);
+}
+
+/* ---------- NAVBAR (glass) ---------- */
+.navbar{
+  backdrop-filter: saturate(140%) blur(6px);
+  background: rgba(10,14,25,.72)!important;
+  border-bottom: 1px solid rgba(255,255,255,.06);
+}
+.navbar .navbar-brand { font-weight: 700; }
+
+/* ---------- TITULARES DE SECCIÓN ---------- */
+.container > h1{
+  text-align: left;
+  margin: 10px 0 14px;
+  font-weight: 800;
+  letter-spacing: .2px;
+}
+.container > h1 + .d-flex{ margin-bottom: 28px; }
+
+/* ---------- SCROLL HORIZONTAL LINDO ---------- */
+.d-flex.overflow-x-auto{
+  scroll-snap-type: x mandatory;
+  padding-bottom: 6px;               /* para que no tape la sombra */
+}
+.d-flex.overflow-x-auto > * { scroll-snap-align: start; }
+.d-flex.overflow-x-auto::-webkit-scrollbar{ height: 10px; }
+.d-flex.overflow-x-auto::-webkit-scrollbar-track{
+  background: rgba(255,255,255,.06); border-radius: 999px;
+}
+.d-flex.overflow-x-auto::-webkit-scrollbar-thumb{
+  background: linear-gradient(180deg, var(--primary), #1fb6ce);
+  border-radius: 999px;
+}
+
+/* ---------- CARD LOOK PRO ---------- */
+.card{
+  border: 1px solid rgba(255,255,255,.07);
+  border-radius: 16px;
+  color: var(--text);
+  background: linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02));
+  box-shadow: 0 16px 40px rgba(0,0,0,.25);
+  transition: transform .18s ease, box-shadow .25s ease, border-color .25s ease;
+}
+.card:hover{
+  transform: translateY(-4px);
+  box-shadow: 0 24px 60px rgba(0,0,0,.35);
+  border-color: rgba(34,211,238,.28);
+}
+.card .card-title{ font-weight: 700; margin-bottom: 6px; }
+.card .card-text{ color: var(--muted); }
+
+/* Imagen: evita parpadeos si tarda en cargar */
+.card-img-top{
+  display: block;
+  background: #0b1220;
+}
+
+/* Botones */
+.btn-primary{
+  background: linear-gradient(180deg, var(--primary), #1fb6ce);
+  border: none; color:#06131a; font-weight:700;
+  box-shadow: 0 10px 24px rgba(34,211,238,.26);
+}
+.btn-primary:focus-visible{ box-shadow: 0 0 0 8px var(--ring); }
+
+.btn-outline-warning{
+  border-width: 2px; font-weight:700;
+}
+.btn-outline-warning .fa-heart{ transition: transform .12s ease; }
+.btn-outline-warning:active .fa-heart{ transform: scale(1.15); }
+
+/* ---------- DROPDOWN FAVORITOS ---------- */
+.dropdown-menu{
+  border-radius: 14px;
+  border: 1px solid rgba(255,255,255,.08);
+  background: #0e1524; color: var(--text);
+  box-shadow: 0 18px 40px rgba(0,0,0,.35);
+  min-width: 240px;
+}
+.dropdown-item{ color: var(--text); }
+.dropdown-item.text-muted{ color: var(--muted)!important; }
+.dropdown-item .btn-outline-danger{
+  border-color: rgba(255,255,255,.2); color: #fca5a5;
+}
+
+/* ---------- FOOTER ---------- */
+.footer{
+  background: rgba(10,14,25,.6);
+  border-top: 1px solid rgba(255,255,255,.07);
+  color: var(--muted);
+}
+.footer a{ color: var(--primary); text-decoration: none; }
+
+/* ---------- DETAILS PAGE ---------- */
+.container .img-fluid.rounded{
+  box-shadow: 0 18px 50px rgba(0,0,0,.4);
+}
+.container hr{
+  border-color: rgba(255,255,255,.14);
+}
+.container .text-muted{ color: var(--muted)!important; }
+
+/* Tarjetas de specs */
+.row.text-center > .col-md-2{
+  padding: 14px 8px;
+  border-right: 1px solid rgba(255,255,255,.06);
+}
+.row.text-center > .col-md-2:last-child{ border-right: 0; }
+.row.text-center h6{ color: #f43f5e; } /* text-danger mejorado */
+
+/* Brand */
+.brand { color: var(--text) !important; text-decoration: none; }
+.brand-icon{
+  font-size: 28px;
+  color: var(--primary);
+  filter: drop-shadow(0 0 6px rgba(34,211,238,.35));
+}
+.brand-text{
+  font-weight: 800; letter-spacing:.5px;
+}
+.brand:hover .brand-icon{
+  filter: drop-shadow(0 0 10px rgba(34,211,238,.55));
+}
